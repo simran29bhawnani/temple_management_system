@@ -9,8 +9,8 @@ class Users::SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if @user&.valid_password? (params[:password])
+    @user = User.find_by(email: params[:user][:email])
+    if @user&.valid_password? (params[:user][:password])
       if_an_active_employee
     else
       render :json => {:message => "you have entered wrong credentials"}
