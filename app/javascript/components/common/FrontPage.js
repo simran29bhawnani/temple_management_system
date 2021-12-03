@@ -5,17 +5,19 @@ import Image2 from '../../../assets/images/icons/mahakal_image2.jpg'
 import Image3 from '../../../assets/images/icons/mahakal_image3.jpeg'
 import SideBar from './SideBar'
 import TopNavbar from'./TopNavbar'
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import {Navbar, Container, Nav} from 'react-bootstrap';
 
 const FrontPage = () => {
   return (
     <>
       <Row>
+        <div  style={{zIndex: '9999'}}>
         <TopNavbar />
+        </div>
         <Col xs={2} style={{marginRight: '-60px'}}>
           <SideBar />
         </Col>
-        <Col xs={10}>
+        <Col xs={10} style={{width: '86.33%'}}>
           <div>
             <Carousel>
               <Carousel.Item interval={1000}  style={{height: "430px"}}>
@@ -120,46 +122,25 @@ const FrontPage = () => {
               </Table>
             </Col>
           </Row>
-          <Row style={{backgroundColor: '#ffd91e'}}>
+          <Row style={{backgroundColor: '#ffd91e', height: '60px'}}>
             <h3>Locate on Map</h3>
           </Row>
           </div>
         </Col>
-        <MDBFooter color="blue" className="font-small pt-4 mt-4">
-      <MDBContainer fluid className="text-center text-md-left">
-        <MDBRow>
-          <MDBCol md="6">
-            <h5 className="title">Footer Content</h5>
-            <p>
-              Here you can use rows and columns here to organize your footer
-              content.
-            </p>
-          </MDBCol>
-          <MDBCol md="6">
-            <h5 className="title">Links</h5>
-            <ul>
-              <li className="list-unstyled">
-                <a href="#!">Link 1</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 2</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-      <div className="footer-copyright text-center py-3">
-        <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
-        </MDBContainer>
-      </div>
-    </MDBFooter>
+          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: '150px', zIndex: '9999'}}>
+          <Navbar.Brand href="#home">@copyright by Mahakaleshwar</Navbar.Brand>
+          <Container>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#features">Facebook</Nav.Link>
+              <Nav.Link href="#pricing">Twitter</Nav.Link>
+              <Nav.Link href="#pricing">LinkedIn</Nav.Link>
+              <Nav.Link href="#pricing">Instagram</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </Row>
     </>
   )

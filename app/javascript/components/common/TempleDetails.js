@@ -4,6 +4,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import SideBar from './SideBar'
 import TopNavbar from './TopNavbar'
+import {Navbar, Container, Nav} from 'react-bootstrap';
 
 const TempleDetails = (props) => {
   const [items, setItems] = useState()
@@ -132,6 +133,20 @@ const TempleDetails = (props) => {
         </div>
       </div>
     </React.Fragment>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height: '150px', zIndex: '9999'}}>
+          <Navbar.Brand href="#home">@copyright by Mahakaleshwar</Navbar.Brand>
+          <Container>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#features">Facebook</Nav.Link>
+              <Nav.Link href="#pricing">Twitter</Nav.Link>
+              <Nav.Link href="#pricing">LinkedIn</Nav.Link>
+              <Nav.Link href="#pricing">Instagram</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          </Container>
+        </Navbar>
     </>
   );
 }

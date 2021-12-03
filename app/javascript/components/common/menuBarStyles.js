@@ -5,8 +5,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent : "left",
   },
   drawer : {
-    marginTop: "74px",
-    paddingTop : "20px",
+    marginTop: "0px",
+    paddingTop : "70px",
     width: "250px",
     backgroundColor: "orange"
   },
