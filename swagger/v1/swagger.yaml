@@ -1,0 +1,813 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/devoters": {
+      "post": {
+        "summary": "Create a devoter",
+        "tags": [
+          "Devoter"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "temple created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "zipcode": {
+                    "type": "integer"
+                  },
+                  "mail_id": {
+                    "type": "string"
+                  },
+                  "contact": {
+                    "type": "string"
+                  },
+                  "id_proof": {
+                    "type": "string"
+                  },
+                  "proof_id_number": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devoters/{id}": {
+      "put": {
+        "summary": "Update existing devoter",
+        "tags": [
+          "Devoter"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "zipcode": {
+                    "type": "integer"
+                  },
+                  "mail_id": {
+                    "type": "string"
+                  },
+                  "contact": {
+                    "type": "string"
+                  },
+                  "id_proof": {
+                    "type": "string"
+                  },
+                  "proof_id_number": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Show devoter",
+        "tags": [
+          "Devoter"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Devoter",
+        "tags": [
+          "Devoter"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/offline_city_centres": {
+      "post": {
+        "summary": "Create a Offline City Centre",
+        "tags": [
+          "Offline City Centre"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "temple created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "pincode": {
+                    "type": "integer"
+                  },
+                  "mail_id": {
+                    "type": "string"
+                  },
+                  "phone_no": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/offline_city_centres/{id}": {
+      "put": {
+        "summary": "Update existing offline city centre",
+        "tags": [
+          "Offline City Centre"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "pincode": {
+                    "type": "integer"
+                  },
+                  "mail_id": {
+                    "type": "string"
+                  },
+                  "phone_no": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Show Offline City Centre",
+        "tags": [
+          "Offline City Centre"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Offline City Centre",
+        "tags": [
+          "Offline City Centre"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/temple_history_details": {
+      "post": {
+        "summary": "Create a temple history details",
+        "tags": [
+          "Temple History Details"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "temple history details"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "temple_history": {
+                    "type": "string"
+                  },
+                  "temple_structure": {
+                    "type": "string"
+                  },
+                  "inside_temple_theertham": {
+                    "type": "string"
+                  },
+                  "outside_temple_theertham": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/temple_history_details/{id}": {
+      "put": {
+        "summary": "Update existing temple histroy details",
+        "tags": [
+          "Temple History Details"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "temple_history": {
+                    "type": "string"
+                  },
+                  "temple_structure": {
+                    "type": "string"
+                  },
+                  "inside_temple_theertham": {
+                    "type": "string"
+                  },
+                  "outside_temple_theertham": {
+                    "type": "string"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Show Temple History Details",
+        "tags": [
+          "Temple History Details"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Temple Histroy Details",
+        "tags": [
+          "Temple History Details"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/temples": {
+      "post": {
+        "summary": "Create a Temple",
+        "tags": [
+          "Temples"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "temple created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "temple_name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "temple_email": {
+                    "type": "string"
+                  },
+                  "phone_no": {
+                    "type": "string"
+                  },
+                  "temple_address": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "zipcode": {
+                    "type": "integer"
+                  },
+                  "start_time": {
+                    "type": "datetime"
+                  },
+                  "end_time": {
+                    "type": "datetime"
+                  }
+                },
+                "required": [
+                  "temple_name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/temples/{id}": {
+      "put": {
+        "summary": "Update existing temple with form data",
+        "tags": [
+          "Temples"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "temple_name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "temple_email": {
+                    "type": "string"
+                  },
+                  "phone_no": {
+                    "type": "string"
+                  },
+                  "temple_address": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "zipcode": {
+                    "type": "integer"
+                  },
+                  "start_time": {
+                    "type": "datetime"
+                  },
+                  "end_time": {
+                    "type": "datetime"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Show Temple",
+        "tags": [
+          "Temples"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Temple",
+        "tags": [
+          "Temples"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/worships": {
+      "post": {
+        "summary": "Create Worship",
+        "tags": [
+          "Worship"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "worship created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type_of_pooja": {
+                    "type": "string"
+                  },
+                  "pundit": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "integer"
+                  },
+                  "start_time": {
+                    "type": "datetime"
+                  },
+                  "end_time": {
+                    "type": "datetime"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/worships/{id}": {
+      "put": {
+        "summary": "Update worship",
+        "tags": [
+          "Worship"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type_of_pooja": {
+                    "type": "string"
+                  },
+                  "pundit": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "integer"
+                  },
+                  "start_time": {
+                    "type": "datetime"
+                  },
+                  "end_time": {
+                    "type": "datetime"
+                  },
+                  "temple_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "temple_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Show Worship",
+        "tags": [
+          "Worship"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Worship",
+        "tags": [
+          "Worship"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {
+        "defaultHost": {
+          "default": "localhost:3000"
+        }
+      }
+    }
+  ]
+}
