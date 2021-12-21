@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 const AdminLogin = (props) => {
+  const history = useHistory();
+  const [userId, setUserId] = useState()
   const loginPageStyle = {
     margin: "225px auto 37px",
     maxWidth: "530px",
@@ -37,7 +40,6 @@ const AdminLogin = (props) => {
     </React.Fragment>
   );
 }
-
 const LoginFormik = withFormik({
   mapPropsToValues: (props) => {
     return {
@@ -53,13 +55,23 @@ const LoginFormik = withFormik({
       .matches(/(?=.*[0-9])/, "Password must contain a number.")
   }),
   handleSubmit: (values) => {
-    const REST_API_URL = "YOUR_REST_API_URL";
+    const REST_API_URL = "/users/sign_in";
     fetch(REST_API_URL, {
-      method: 'post',
-      body: JSON.stringify(values)
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }).then(response=> {
+      // debugger
       if (response.ok) {
-        return response.json();
+          response.json()
+          // setUserId(response.json())
+        // return(
+          console.log('response ===== ', response)
+          window.location.href = `/temples`
+          // history.push("/ShowTempleDetails")
+        // )
       } else {
         // HANDLE ERROR
         throw new Error('Something went wrong');

@@ -4,11 +4,11 @@ class TemplesController < ApplicationController
 
   def index
     @temples = Temple.all
-    render json: {temples: @temples}, status: 200
+    # render json: {temples: @temples}, status: 200
   end
 
   def show
-    render json: {temple: @temple}, status: 200
+    # render json: {temple: @temple}, status: 200
   end
   
   def new
