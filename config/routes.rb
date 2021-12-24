@@ -3,12 +3,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   root to: 'welcome#index'
   
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    confirmations: 'users/confirmations',
-    sessions: 'users/sessions',
-    passwords: 'users/passwords'
-  }
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   resources :temples
   resources :temple_history_details
@@ -16,4 +11,3 @@ Rails.application.routes.draw do
   resources :worships
   resources :devoters
 end
-
