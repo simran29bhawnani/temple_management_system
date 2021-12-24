@@ -1,37 +1,33 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   # before_action :configure_sign_in_params, only: [:create]
 
+  # GET /resource/sign_in
   # def new
-  #   # render "users/new"
-  # super
-  # end
-
-  # def create
   #   super
   # end
-  
-  def destroy
-    super
-    # if current_user 
-    #   current_user.authentication_token = nil 
-    #   current_user.save
-    #   render :json => {:message => "you have succesfully logged out"}
-    # else
-    #   render :json => {:message => "you have succesfully logged out"}
-    # end    
+
+  # POST /resource/sign_in
+  def create
+    user = User.find_by(email: params[:user][:email])
+    if user.valid_password?(params[:user][:password])
+      render json: user.as_json(only: [:email, :authentication_token])
+    else
+      head(:unauthorized)
+    end
   end
-  
-  # def if_an_active_employee
-  #   if @user.active_status
-  #     render json: @user.as_json
-  #   else
-  #     render :json => {:message => "not an active employee"}
-  #   end
+
+  # DELETE /resource/sign_out
+  def destroy
+    render json: {message: 'Successfully logout'}
+  end
+
+  # protected
+
+  # If you have extra params to permit, append them to the sanitizer.
+  # def configure_sign_in_params
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
 end
-
-
