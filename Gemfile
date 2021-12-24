@@ -25,6 +25,7 @@ gem 'react-rails'
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem 'dotenv-rails'
+gem 'rack-cors', :require => 'rack/cors'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -32,7 +33,6 @@ gem 'dotenv-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg', '~> 0.20'
 gem 'rails-erd', group: :development
-gem 'pry'
 gem 'rswag-api'
 gem 'rswag-ui', '~> 2.4'
 
@@ -49,6 +49,7 @@ group :development do
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'pry'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
