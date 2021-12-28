@@ -4,4 +4,5 @@ class Temple < ApplicationRecord
   has_many :offline_city_centres, dependent: :destroy
   has_many :worships, dependent: :destroy
   has_many_attached :temple_images
+  belongs_to :user
 end
