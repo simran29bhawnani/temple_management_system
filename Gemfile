@@ -23,10 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
-gem 'dotenv-rails'
 gem 'rack-cors', :require => 'rack/cors'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -34,12 +33,15 @@ gem 'pg', '~> 0.20'
 gem 'rails-erd', group: :development
 gem 'rswag-api'
 gem 'rswag-ui', '~> 2.4'
+gem 'shrine', '~> 3.3'
+gem "shrine-cloudinary", "~> 1.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'rswag-specs'
+  gem 'dotenv-rails'
 end
 
 group :development do
