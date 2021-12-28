@@ -1,4 +1,5 @@
 class Temple < ApplicationRecord
+  include ImageUploader::Attachment(:image)
   has_many :temple_history_details, dependent: :destroy
   has_many :devoters
   has_many :offline_city_centres, dependent: :destroy
