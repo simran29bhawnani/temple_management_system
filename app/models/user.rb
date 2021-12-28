@@ -3,5 +3,4 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   acts_as_token_authenticatable :authentication_token
-  belongs_to :temple
 end
