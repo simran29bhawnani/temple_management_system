@@ -51,6 +51,6 @@ class TemplesController < ApplicationController
     end
 
     def temple_params
-      params.require(:temple).permit(:temple_name, :description, :temple_email, :phone_no, :temple_address, :city, :state, :country, :zipcode, :start_time, :end_time, :temple_images)
+      params.require(:temple).permit(:temple_name, :description, :temple_email, :phone_no, :temple_address, :city, :state, :country, :zipcode, :start_time, :end_time, :image, :temple_images)
     end
 end
