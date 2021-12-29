@@ -8,7 +8,8 @@ class TemplesController < ApplicationController
   end
 
   def show
-    render json: {temple: @temple}, status: 200
+    temple_img = @temple&.temple_image&.service_url if @temple&.temple_image&.attached?
+    render json: {temple: @temple, temple_image: temple_img}, status: 200
   end
   
   def new
@@ -51,6 +52,6 @@ class TemplesController < ApplicationController
     end
 
     def temple_params
-      params.require(:temple).permit(:temple_name, :description, :temple_email, :phone_no, :temple_address, :city, :state, :country, :zipcode, :start_time, :end_time, :image, :temple_images)
+      params.require(:temple).permit(:temple_name, :description, :temple_email, :phone_no, :temple_address, :city, :state, :country, :zipcode, :start_time, :end_time, :user_id, :temple_image)
     end
 end
