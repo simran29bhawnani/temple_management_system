@@ -3,7 +3,10 @@ class TemplesController < ApplicationController
   before_action :find_temple, only: [:show, :update, :destroy]
 
   def index
-    @temples = Temple.all
+    @temples = Temple.all.map do |temple|
+      temple_hash = temple.to_hash
+      temple_hash
+    end
     render json: {temples: @temples}, status: 200
   end
 
