@@ -5,7 +5,6 @@ class TemplesController < ApplicationController
   def index
     @temples = Temple.all.map do |temple|
       temple_hash = temple.to_hash
-      temple_hash
     end
     render json: {temples: @temples}, status: 200
   end
