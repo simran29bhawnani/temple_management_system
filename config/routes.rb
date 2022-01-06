@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :offline_city_centres
   resources :worships
   resources :devoters
+  resources :events
 end
