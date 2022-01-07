@@ -1,4 +1,5 @@
 class TempleHistoryDetailsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :find_temple_history_detail, only: [:show, :update, :destroy]
 
   def index

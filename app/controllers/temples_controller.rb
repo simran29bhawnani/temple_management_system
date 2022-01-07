@@ -47,8 +47,17 @@ class TemplesController < ApplicationController
     end
   end
 
-  private
+  def single_temple_detail
+    temple_details = Temple.find_by(temple_name: 'Khajrana Ganesh Mandir')
+    if temple_details.present?
+      render json: {details: temple_details}, status: 200
+    else
+      render json: {message: temple_details.errors.full_messages}
+    end
+  end
 
+  private
+    
     def find_temple
       @temple = Temple.find(params[:id])
     end

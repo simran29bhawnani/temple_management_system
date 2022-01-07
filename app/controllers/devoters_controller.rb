@@ -1,5 +1,5 @@
 class DevotersController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   before_action :find_devoter, only: [:show, :update, :destroy]
 
   def index
