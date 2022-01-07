@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :worships
   resources :devoters
   resources :events
+  get '/khajrana', controller: 'temples', action: 'single_temple_detail'
 end

@@ -1,5 +1,5 @@
 class OfflineCityCentresController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   before_action :find_offline_city_centre, only: [:show, :update, :destroy]
   
   def show
