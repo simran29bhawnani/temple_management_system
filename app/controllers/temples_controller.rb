@@ -50,7 +50,8 @@ class TemplesController < ApplicationController
   def single_temple_detail
     temple_details = Temple.find_by(temple_name: params[:temple_name])
     if temple_details.present?
-      render json: {details: temple_details}, status: 200
+      temple_image = temple_details.temple_image.service_url if temple_details.temple_image.attached?
+      render json: {details: temple_details, image_url: temple_image}, status: 200
     else
       render json: {message: 'Not found!'}
     end
