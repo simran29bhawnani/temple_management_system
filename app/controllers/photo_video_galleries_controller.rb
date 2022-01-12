@@ -18,7 +18,7 @@ class PhotoVideoGalleriesController < ApplicationController
   def create
     @photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
     if  @photo_video_gallery.save
-      render json: {message: 'Temple successfully created!', photo_video_gallery: @photo_video_gallery}, status: 200
+      render json: {message: 'Image and video successfully uploaded!', photo_video_gallery: @photo_video_gallery}, status: 200
     else
       render json: {message:  @photo_video_gallery.errors.full_messages}
     end
