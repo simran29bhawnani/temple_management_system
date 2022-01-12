@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :devoters
   resources :events
   get 'single_temple_detail', controller: 'temples', action: 'single_temple_detail'
+  resources :photo_video_galleries
 end
