@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :events
   get 'single_temple_detail', controller: 'temples', action: 'single_temple_detail'
   resources :photo_video_galleries
+  post 'upload_photo', controller: 'photo_video_galleries', action: 'upload_photo'
+  post 'upload_video', controller: 'photo_video_galleries', action: 'upload_video'
 end
