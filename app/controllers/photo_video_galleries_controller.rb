@@ -11,7 +11,8 @@ class PhotoVideoGalleriesController < ApplicationController
   def show
     @photo_video_gallery = PhotoVideoGallery.find(params[:id])
     temple_img = @photo_video_gallery&.temple_photo&.service_url if @photo_video_gallery&.temple_photo&.attached?
-    render json: {photo_video_gallery: @photo_video_gallery, temple_image: temple_img}, status: 200
+    temple_video = @photo_video_gallery&.temple_video&.service_url if @photo_video_gallery&.temple_video&.attached?
+    render json: {photo_video_gallery: @photo_video_gallery, temple_image: temple_img, temple_video: temple_video}, status: 200
   end
 
   def create
@@ -26,6 +27,6 @@ class PhotoVideoGalleriesController < ApplicationController
   private
 
     def photo_video_gallery_params
-      params.require(:gallery).permit(:temple_photo, :temple_photo, :temple_id)
+      params.require(:gallery).permit(:temple_photo, :temple_video, :temple_id)
     end
 end
