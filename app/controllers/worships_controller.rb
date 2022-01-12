@@ -2,6 +2,11 @@ class WorshipsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :find_worship, only: [:show, :update, :destroy]
 
+  def index
+    @worships = Worship.all
+    render json: {worships: @worships}
+  end
+
   def show
     render json: {worship: @worship}, status: 200
   end
