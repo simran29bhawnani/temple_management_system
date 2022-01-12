@@ -15,21 +15,18 @@ class PhotoVideoGalleriesController < ApplicationController
     render json: {photo_video_gallery: @photo_video_gallery, temple_image: temple_img, temple_video: temple_video}, status: 200
   end
 
-  def upload_photo
-    @photo_video_gallery = PhotoVideoGallery.new(temple_photo: params[:temple_photo], temple_id: params[:temple_id])
+  def create
+    @photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
     if  @photo_video_gallery.save
-      render json: {message: 'Photo successfully uploaded!', photo_video_gallery: @photo_video_gallery}, status: 200
+      render json: {message: 'Image and video successfully uploaded!', photo_video_gallery: @photo_video_gallery}, status: 200
     else
       render json: {message:  @photo_video_gallery.errors.full_messages}
     end
   end
 
-  def upload_video
-    @photo_video_gallery = PhotoVideoGallery.new(temple_video: params[:temple_video], temple_id: params[:temple_id])
-    if  @photo_video_gallery.save
-      render json: {message: 'Video successfully uploaded!', photo_video_gallery: @photo_video_gallery}, status: 200
-    else
-      render json: {message:  @photo_video_gallery.errors.full_messages}
+  private
+
+    def photo_video_gallery_params
+      params.require(:gallery).permit(:temple_photo, :temple_video, :temple_id)
     end
-  end
 end
