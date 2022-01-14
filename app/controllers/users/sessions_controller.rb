@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     user = User.find_by(email: params[:user][:email])
     if user.present? && user.valid_password?(params[:user][:password])
-      render json: user.as_json(only: [:email, :authentication_token, :id])
+      render json: user.as_json(only: [:email, :authentication_token, :id, :role])
     else
       render json: {message: 'Invaild credentials!'}
     end
