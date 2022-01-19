@@ -33,9 +33,10 @@ gem 'pg', '~> 0.20'
 gem 'rails-erd', group: :development
 gem 'rswag-api'
 gem 'rswag-ui', '~> 2.4'
-gem 'shrine', '~> 3.4'
-gem "shrine-cloudinary", "~> 1.1"
-gem 'cloudinary'
+# gem 'shrine', '~> 3.4'
+# gem "shrine-cloudinary", "~> 1.1"
+# gem 'cloudinary'
+gem 'aws-sdk-s3', '~> 1.111', '>= 1.111.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
