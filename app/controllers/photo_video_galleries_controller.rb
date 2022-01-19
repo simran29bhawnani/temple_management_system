@@ -16,11 +16,13 @@ class PhotoVideoGalleriesController < ApplicationController
   end
 
   def create
-    @photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
-    if  @photo_video_gallery.save
-      render json: {message: 'Image and video successfully uploaded!', photo_video_gallery: @photo_video_gallery}, status: 200
+    photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
+    photo = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_photo])
+    photo_video_gallery.photo_url = photo.public_url if photo&.public_url.present?
+    if  photo_video_gallery.save
+      render json: {message: 'Image and video successfully uploaded!', photo_video_gallery: photo_video_gallery}, status: 200
     else
-      render json: {message:  @photo_video_gallery.errors.full_messages}
+      render json: {message:  photo_video_gallery.errors.full_messages}
     end
   end
 
