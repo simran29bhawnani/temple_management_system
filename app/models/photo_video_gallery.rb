@@ -6,6 +6,8 @@ class PhotoVideoGallery < ApplicationRecord
   def to_hash
     {
       temple_id: self.temple_id,
+      photo_url: self.photo_url,
+      video_url: self.video_url,
       gallery_photo: self.temple_photo_url,
       gallery_video: self.temple_video_url
     }
