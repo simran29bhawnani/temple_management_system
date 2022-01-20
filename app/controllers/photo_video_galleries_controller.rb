@@ -18,9 +18,10 @@ class PhotoVideoGalleriesController < ApplicationController
   def create
     photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
     photo = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_photo]) if params[:gallery][:temple_photo].present?
-    photo = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_video]) if params[:gallery][:temple_video].present?
+    video = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_video]) if params[:gallery][:temple_video].present?
     photo_video_gallery.photo_url = photo.public_url if photo&.public_url.present?
-    if  photo_video_gallery.save
+    photo_video_gallery.video_url = video.public_url if video&.public_url.present?
+    if photo_video_gallery.save
       render json: {message: 'Image and video successfully uploaded!', photo_video_gallery: photo_video_gallery}, status: 200
     else
       render json: {message:  photo_video_gallery.errors.full_messages}
