@@ -19,4 +19,11 @@ test:
 
 production:
   <<: *default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
   database: temple-management-system-production
+  pool: 5
+  username: <%= ENV.fetch('DB_USERNAME') %>
+  password: <%= ENV.fetch('DB_PASS') %>
+  
