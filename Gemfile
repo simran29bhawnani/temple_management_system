@@ -37,13 +37,13 @@ gem 'rswag-ui', '~> 2.4'
 # gem "shrine-cloudinary", "~> 1.1"
 # gem 'cloudinary'
 gem 'aws-sdk-s3', '~> 1.111', '>= 1.111.1'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'  
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'rswag-specs'
-  gem 'dotenv-rails'
 end
 
 group :development do
