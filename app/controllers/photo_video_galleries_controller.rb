@@ -8,6 +8,17 @@ class PhotoVideoGalleriesController < ApplicationController
     render json: {photo_video_gallerys: @photo_video_gallerys}, status: 200
   end
 
+  def fetch_single_temple_images
+    temple = Temple.find_by(temple_name: params[:temple_name])
+    photos = PhotoVideoGallery.where(temple_id: temple.id)
+    arr = []
+    photos.each do |p|
+      p.temple_photo.service_url if p.temple_photo.attached?
+      arr <<  p.temple_photo.service_url if p.temple_photo.attached?
+    end
+    render json: {img_url: arr}, status: 200
+  end
+
   def show
     @photo_video_gallery = PhotoVideoGallery.find(params[:id])
     temple_img = @photo_video_gallery&.temple_photo&.service_url if @photo_video_gallery&.temple_photo&.attached?
