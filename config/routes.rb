@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :photo_video_galleries
   post 'upload_photo', controller: 'photo_video_galleries', action: 'upload_photo'
   post 'upload_video', controller: 'photo_video_galleries', action: 'upload_video'
+  get 'fetch_single_temple_images', controller: 'photo_video_galleries', action: 'fetch_single_temple_images'
 end
