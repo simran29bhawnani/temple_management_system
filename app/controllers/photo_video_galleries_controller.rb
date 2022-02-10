@@ -1,5 +1,6 @@
 class PhotoVideoGalleriesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  include UploadImage
 
   def index
     @photo_video_gallerys = PhotoVideoGallery.all.map do |gallery|
@@ -28,8 +29,8 @@ class PhotoVideoGalleriesController < ApplicationController
 
   def create
     photo_video_gallery = PhotoVideoGallery.new(photo_video_gallery_params)
-    photo = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_photo]) if params[:gallery][:temple_photo].present?
-    video = PhotoVideoGallery.upload_image_to_s3(params[:gallery][:temple_video]) if params[:gallery][:temple_video].present?
+    photo = UploadImage.upload_image_to_s3(params[:gallery][:temple_photo]) if params[:gallery][:temple_photo].present?
+    video = UploadImage.upload_image_to_s3(params[:gallery][:temple_video]) if params[:gallery][:temple_video].present?
     photo_video_gallery.photo_url = photo.public_url if photo&.public_url.present?
     photo_video_gallery.video_url = video.public_url if video&.public_url.present?
     if photo_video_gallery.save
