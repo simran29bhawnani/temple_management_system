@@ -20,6 +20,8 @@ class TemplesController < ApplicationController
 
   def create
     @temple = Temple.new(temple_params)
+    temple_image = Temple.upload_image_to_s3(params[:temple][:temple_image]) if params[:temple][:temple_image].present?
+    @temple.temple_image_url = temple_image&.public_url if temple_image&.public_url.present?
     if @temple.save
       render json: {message: 'Temple successfully created!',temple: @temple}, status: 200
     else
