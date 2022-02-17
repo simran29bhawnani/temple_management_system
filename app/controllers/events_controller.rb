@@ -36,6 +36,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def fetch_single_temple_events
+    temple = Temple.find_by(temple_name: params[:temple_name])
+    if temple.present?
+      @event = Event.where(temple_id: temple.id)
+      render json: {events: @event}, status: 200
+    else
+      render json: {message: 'Not found!'}
+    end
+  end
+
   private
 
     def find_event

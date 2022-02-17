@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   post 'upload_photo', controller: 'photo_video_galleries', action: 'upload_photo'
   post 'upload_video', controller: 'photo_video_galleries', action: 'upload_video'
   get 'fetch_single_temple_images', controller: 'photo_video_galleries', action: 'fetch_single_temple_images'
+  get 'fetch_single_temple_history_detail', controller: 'temple_history_details', action: 'fetch_single_temple_history_detail'
+  get 'fetch_single_temple_events', controller: 'events', action: 'fetch_single_temple_events'
 end
