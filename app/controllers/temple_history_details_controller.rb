@@ -41,6 +41,16 @@ class TempleHistoryDetailsController < ApplicationController
     end
   end
 
+  def fetch_single_temple_history_detail
+    temple = Temple.find_by(temple_name: params[:temple_name])
+    if temple.present?
+      @temple_history_detail = TempleHistoryDetail.find_by(temple_id: temple.id)
+      render json: {temple_history_detail: @temple_history_detail}, status: 200
+    else
+      render json: {message: 'Not found!'}
+    end
+  end
+
   private
 
     def find_temple_history_detail
