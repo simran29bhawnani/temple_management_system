@@ -25,7 +25,6 @@ class TempleHistoryDetailsController < ApplicationController
   end
 
   def update
-    @temple_history_detail = TempleHistoryDetail.find(params[:id])
     if @temple_history_detail.update(temple_history_details_params)
       render json: {message: 'Update successfully', temple_history_detail: @temple_history_detail}, status: 200
     else
