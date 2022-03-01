@@ -3,8 +3,7 @@ default: &default
   encoding: utf8
   pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
   timeout: 5000
-  # adapter: postgresql
-  url:  <%= ENV.fetch('DATABASE_URL') %>
+  # url:  <%= ENV.fetch('DATABASE_URL') %>
   username: <%= ENV.fetch('DB_USERNAME') %>
   password: <%= ENV.fetch('DB_PASS') %>
   host: localhost
@@ -25,7 +24,7 @@ production:
   encoding: utf8
   database: temple-management-system-production
   pool: 5
-  url:  <%= ENV.fetch('DATABASE_URL') %>
+  # url:  <%= ENV.fetch('DATABASE_URL') %>
   username: <%= ENV.fetch('DB_USERNAME') %>
   password: <%= ENV.fetch('DB_PASS') %>
   
