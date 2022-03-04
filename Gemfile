@@ -36,7 +36,7 @@ gem 'rswag-ui', '~> 2.4'
 # gem 'shrine', '~> 3.4'
 # gem "shrine-cloudinary", "~> 1.1"
 # gem 'cloudinary'
-gem 'aws-sdk-s3', '~> 1.111', '>= 1.111.1'
+# gem 'aws-sdk-s3', '~> 1.111', '>= 1.111.1'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'  
 
 group :development, :test do
