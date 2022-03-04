@@ -1,6 +1,6 @@
 class TemplesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  include UploadImage
+  # include UploadImage
   before_action :find_temple, only: [:show, :update, :destroy]
 
   def index
@@ -21,7 +21,7 @@ class TemplesController < ApplicationController
 
   def create
     @temple = Temple.new(temple_params)
-    temple_image = UploadImage.upload_image_to_s3(params[:temple][:temple_image]) if params[:temple][:temple_image].present?
+    # temple_image = UploadImage.upload_image_to_s3(params[:temple][:temple_image]) if params[:temple][:temple_image].present?
     @temple.temple_image_url = temple_image&.public_url if temple_image&.public_url.present?
     if @temple.save
       render json: {message: 'Temple successfully created!',temple: @temple}, status: 200
@@ -53,7 +53,8 @@ class TemplesController < ApplicationController
   def single_temple_detail
     temple_details = Temple.find_by(temple_name: params[:temple_name])
     if temple_details.present?
-      temple_image = temple_details.temple_image.service_url if temple_details.temple_image.attached?
+      temple_image = url_for(temple_details.temple_image) if temple_details.temple_image.attached?
+      # temple_image = temple_details.temple_image_url if temple_details.temple_image.attached?
       render json: {details: temple_details, image_url: temple_image}, status: 200
     else
       render json: {message: 'Not found!'}

@@ -22,11 +22,11 @@ class Temple < ApplicationRecord
       start_time: self.start_time,
       end_time: self.end_time,
       user_id: self.user_id,
-      logo: self.temple_logo
+      # logo: self.temple_logo
     }
   end
 
-  def temple_logo
-    self&.temple_image&.service_url if self.temple_image&.attached?
-  end
+  # def temple_logo
+  #   self&.temple_image&.service_url if self.temple_image&.attached?
+  # end
 end
