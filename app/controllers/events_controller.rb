@@ -39,8 +39,10 @@ class EventsController < ApplicationController
   def fetch_single_temple_events
     temple = Temple.find_by(temple_name: params[:temple_name])
     if temple.present?
-      @event = Event.where(temple_id: temple.id)
-      render json: {events: @event}, status: 200
+      events = Event.where(temple_id: temple.id).map do |event|
+        event_hash = event.to_hash
+      end 
+      render json: {events: events}, status: 200
     else
       render json: {message: 'Not found!'}
     end
@@ -53,6 +55,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:event_name, :event_description, :event_date, :event_time, :event_address, :temple_id,)
+      params.require(:event).permit(:event_name, :event_description, :event_date, :event_time, :event_address, :temple_id, :event_image)
     end
 end

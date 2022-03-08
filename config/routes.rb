@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get 'fetch_single_temple_images', controller: 'photo_video_galleries', action: 'fetch_single_temple_images'
   get 'fetch_single_temple_history_detail', controller: 'temple_history_details', action: 'fetch_single_temple_history_detail'
   get 'fetch_single_temple_events', controller: 'events', action: 'fetch_single_temple_events'
+  get 'fetch_single_worship_detail', controller: 'worships', action: 'fetch_single_worship_detail'
 end

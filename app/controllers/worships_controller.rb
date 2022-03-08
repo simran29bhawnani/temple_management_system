@@ -40,6 +40,12 @@ class WorshipsController < ApplicationController
     end
   end
 
+  def fetch_single_worship_detail
+    temple = Temple.find_by(temple_name: params[:temple_name])
+    @worship = Worship.where(temple_id: temple.id) if temple&.present?
+    render json: {worship: @worship}, status: 200
+  end
+
   private
 
     def find_worship
